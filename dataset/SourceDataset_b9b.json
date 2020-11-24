@@ -1,0 +1,17 @@
+{
+	"name": "SourceDataset_b9b",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "XMLBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Xml",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "files"
+			}
+		}
+	}
+}
