@@ -16,7 +16,7 @@ namespace Localization_Provider_App
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Localization_Provider", id = UrlParameter.Optional }
             );
         }
     }

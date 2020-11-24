@@ -1,0 +1,49 @@
+﻿@using Localization_Provider_App.Models
+
+@model LangaugeModel
+
+@{
+    ViewBag.Title = "Localization_Provider";
+}
+
+<h2>Simple Application</h2>
+
+
+@using (Html.BeginForm("OK", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+       
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LanguageType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.DropDownListFor(model => model.LanguageType, new SelectList(Enum.GetValues(typeof(LanguageType))),
+                 "Select Language", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LanguageType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-12">
+                <input type="submit" value="OK" formaction="OK" class="btn btn-primary" />
+                <input type="submit" value="Cancel" formaction="Cancel" class="btn btn-primary" />
+
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 text-success">
+                @ViewBag.Msg
+
+            </div>
+
+        </div>
+    </div>
+}
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
