@@ -1,0 +1,15 @@
+{
+	"name": "DestinationDataset_b9b",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "TableStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "localization"
+		}
+	}
+}
