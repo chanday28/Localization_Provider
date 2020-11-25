@@ -7,16 +7,16 @@ using System.Web;
 
 namespace Localization_Provider_App.Models
 {
-    public class LangaugeModel :TableEntity
+    public class TranslationModel :TableEntity
     {
         public string OKButtonText { get; set; }
         public string CancelButtonText { get; set; }
 
         [Required]
-        public LanguageType LanguageType { get; set; }
+        public TranslationType TranslationType { get; set; }
     }
 
-    public enum LanguageType
+    public enum TranslationType
     {
         FI,
         EN

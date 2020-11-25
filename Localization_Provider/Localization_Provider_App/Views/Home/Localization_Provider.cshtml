@@ -1,6 +1,6 @@
 ﻿@using Localization_Provider_App.Models
 
-@model LangaugeModel
+@model TranslationModel
 
 @{
     ViewBag.Title = "Localization_Provider";
@@ -9,7 +9,7 @@
 <h2>Simple Application</h2>
 
 
-@using (Html.BeginForm("OK", "Home", FormMethod.Post))
+@using (Html.BeginForm("GetOKTranslation", "Home", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -18,17 +18,17 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.LanguageType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TranslationType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-12">
-                @Html.DropDownListFor(model => model.LanguageType, new SelectList(Enum.GetValues(typeof(LanguageType))),
+                @Html.DropDownListFor(model => model.TranslationType, new SelectList(Enum.GetValues(typeof(TranslationType))),
                  "Select Language", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.LanguageType, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.TranslationType, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-12">
-                <input type="submit" value="OK" formaction="OK" class="btn btn-primary" />
-                <input type="submit" value="Cancel" formaction="Cancel" class="btn btn-primary" />
+                <input type="submit" value="OK" formaction="GetOKTranslation" class="btn btn-primary" />
+                <input type="submit" value="Cancel" formaction="GetCancelTranslation" class="btn btn-primary" />
 
             </div>
 

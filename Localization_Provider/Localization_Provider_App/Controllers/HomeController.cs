@@ -1,14 +1,21 @@
 ﻿using Localization_Provider_App.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Localization_Provider_App.Controllers
 {
     public class HomeController : Controller
     {
+        //Default Constructor
+        public HomeController()
+        {
+        }
+        public ITranslation TransalatedValue { get; }
+
+        public HomeController(ITranslation transalatedValue)
+        {
+            TransalatedValue = transalatedValue;
+        }
         // GET: Home
         public ActionResult Localization_Provider()
         {
@@ -16,29 +23,26 @@ namespace Localization_Provider_App.Controllers
         }
 
         [HttpPost]
-        public ActionResult OK(LangaugeModel value)
+        public async Task<ActionResult> GetOKTranslation(TranslationModel value)
         {
             if (ModelState.IsValid)
             {
-                TableManager TableManagerObj = new TableManager();
-                LangaugeModel langauageDetail = TableManagerObj.GetLangaugeDetail("localization", value.LanguageType.ToString());
-
-                ViewBag.Msg = langauageDetail.OKButtonText;
-               
+                TranslationModel translatedDetail =await TransalatedValue.GetTranslatedValue(value.TranslationType.ToString());
+                ViewBag.Msg = translatedDetail.OKButtonText;
             }
+           
             return View("Localization_Provider");
         }
+
         [HttpPost]
-        public ActionResult Cancel(LangaugeModel value)
+        public async Task<ActionResult> GetCancelTranslation(TranslationModel value)
         {
             if (ModelState.IsValid)
             {
-                TableManager TableManagerObj = new TableManager();
-                LangaugeModel langauageDetail = TableManagerObj.GetLangaugeDetail("localization", value.LanguageType.ToString());
-
-                ViewBag.Msg = langauageDetail.CancelButtonText;
-
+                TranslationModel translatedDetail = await TransalatedValue.GetTranslatedValue(value.TranslationType.ToString());
+                ViewBag.Msg = translatedDetail.CancelButtonText;
             }
+
             return View("Localization_Provider");
         }
     }
