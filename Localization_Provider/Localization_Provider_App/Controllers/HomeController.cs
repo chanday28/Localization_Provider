@@ -6,7 +6,7 @@ namespace Localization_Provider_App.Controllers
 {
     public class HomeController : Controller
     {
-        //Default Constructor
+        //Added Default Constructor
         public HomeController()
         {
         }

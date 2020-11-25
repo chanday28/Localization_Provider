@@ -12,6 +12,7 @@ namespace Localization_Provider_App.Controllers
     public interface ITranslation
     {
         Task<TranslationModel> GetTranslatedValue(string type);
+       
     }
 
     public class AzureStorageTranslation : ITranslation
