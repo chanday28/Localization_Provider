@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace Localization_Provider_App.Controllers
 {
+   
     public class HomeController : Controller
     {
         //Added Default Constructor
@@ -16,11 +17,13 @@ namespace Localization_Provider_App.Controllers
         {
             TransalatedValue = transalatedValue;
         }
-        // GET: Home
+
+      
         public ActionResult Localization_Provider()
         {
             return View();
         }
+
 
         [HttpPost]
         public async Task<ActionResult> GetOKTranslation(TranslationModel value)
@@ -33,7 +36,7 @@ namespace Localization_Provider_App.Controllers
            
             return View("Localization_Provider");
         }
-
+        
         [HttpPost]
         public async Task<ActionResult> GetCancelTranslation(TranslationModel value)
         {

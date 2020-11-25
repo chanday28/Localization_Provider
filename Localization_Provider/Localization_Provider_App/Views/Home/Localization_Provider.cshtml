@@ -9,7 +9,7 @@
 <h2>Simple Application</h2>
 
 
-@using (Html.BeginForm("GetOKTranslation", "Home", FormMethod.Post))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
@@ -27,8 +27,8 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-12">
-                <input type="submit" value="OK" formaction="GetOKTranslation" class="btn btn-primary" />
-                <input type="submit" value="Cancel" formaction="GetCancelTranslation" class="btn btn-primary" />
+                <input type="submit" value="OK" formaction="@Url.Action("GetOKTranslation")" class="btn btn-primary" formmethod="post" />
+                <input type="submit" value="Cancel" formaction="@Url.Action("GetCancelTranslation")" class="btn btn-primary" formmethod="post" />
 
             </div>
 
